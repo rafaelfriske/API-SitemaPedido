@@ -1,0 +1,50 @@
+# Ignora pastas de compilação
+bin/
+obj/
+
+# Ignora arquivos de cache do Visual Studio
+.vs/
+
+# Ignora arquivos de usuário específicos do Visual Studio
+*.user
+*.suo
+*.userprefs
+
+# Ignora arquivos de configuração local
+appsettings.Development.json
+
+# Ignora pastas de dependências
+packages/
+.nuget/
+
+# Ignora arquivos de saída de publicação
+publish/
+
+# Ignora arquivos de análise do Visual Studio
+*.csproj.user
+*.vbproj.user
+
+# Ignora arquivos de resharper
+_ReSharper.*
+*.ReSharper
+
+# Ignora arquivos de dotnet
+.dotnet/
+
+# Ignora arquivos de IDE Rider
+.idea/
+*.sln.iml
+
+# Ignora arquivos de Docker
+docker-compose.override.yml
+
+# Ignora arquivos de testes
+TestResults/
+
+# Ignora arquivos de cobertura de código
+coverage/
+*.coverage
+*.coverage.xml
+
+# Ignora arquivos de cache do dotnet
+**/Properties/launchSettings.json
