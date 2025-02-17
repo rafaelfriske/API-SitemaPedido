@@ -32,10 +32,9 @@ namespace api_asmontech.Controllers
         // GET: api/PedidoModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PedidoModel>> GetPedidoModel(int id)
-        {
-            // Usa o método Include para carregar os itens do pedido
+        {            
             var pedidoModel = await _context.PedidoModel
-                .Include(p => p.Itens) // Inclui os itens do pedido
+                .Include(p => p.Itens) 
                 .FirstOrDefaultAsync(p => p.IdCliente == id);
 
             if (pedidoModel == null)
@@ -81,20 +80,16 @@ namespace api_asmontech.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<PedidoModel>> PostPedidoModel(PedidoModel pedidoModel)
-        {
-            // Adiciona o pedido ao contexto
+        {            
             _context.PedidoModel.Add(pedidoModel);
-
-            // Itera sobre os itens do pedido e adiciona cada item ao contexto
+          
             foreach (var item in pedidoModel.Itens)
             {
                 _context.ItensPedidoModel.Add(item);
             }
-
-            // Salva as alterações no banco de dados
+                        
             await _context.SaveChangesAsync();
-
-            // Retorna o pedido criado
+            
             return CreatedAtAction("GetPedidoModel", new { id = pedidoModel.IdPedido }, pedidoModel);
         }
 
